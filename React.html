@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>React</title>
+    <style>
+    body {
+        font-family: "Microsoft JhengHei";
+        color: #2E2E2E;
+    }
+    .ul {
+        list-style-type: circle;
+    }
+    .li {
+        margin-bottom: 5px;
+    }
+    .purple {
+        color: #A88FAC;
+        font-size: 18px;
+    }
+    .pink {
+        color: lightcoral;
+        font-size: 22px;
+    }
+    </style>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!--Babel Compiler-->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+        class LiMaker extends React.Component {
+            render() {
+                // return React.createElement("li", this.props.itemNo, "Item "+ this.props.itemNo)
+                return <li className="li" style={{color:this.props.color}}>Item {this.props.itemNo}</li>;
+            }
+        }
+        class UlMaker extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = { maxNo:4 };
+                window.setTimeout(() => {
+                     this.setState((currentState, currentprops) => ({ maxNo:currentState.maxNo + 2 }));    
+                },2000);
+            }
+            render() {
+                let liList = [];
+                let li;
+                for (let i = 1; i<= this.state.maxNo; i++) {
+                    // li = React.createElement(LiMaker, {itemNo:i, key:i});
+                    liList.push(<LiMaker itemNo = {i} color = "#A6A670"/>);
+                }
+                // return React.createElement("ul", null, liList)
+                return <div> 
+                        <MouseEvent/>
+                        <ul className = "ul">{liList}</ul>
+                    </div>;
+            }
+        }
+
+        class MouseEvent extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = { class: "purple"};    
+            }
+            render() {
+                return <h3 className = {this.state.class}
+                    onMouseOver = {this.mouseOver.bind(this)}
+                    onMouseOut = {this.mouseOut.bind(this)}
+                >註冊滑鼠事件</h3>;
+            }
+            mouseOver(e) {
+                this.setState({class: "pink"});
+            }
+            mouseOut(e) {
+                this.setState({class: "purple"});
+            }
+        }
+        window.addEventListener("load", ()=> {
+            let myComponent = <UlMaker/>;
+            ReactDOM.render(myComponent, document.getElementById('container'));
+        });
+    </script>
+
+</head>
+<body>
+    <div id='container'>
+        
+    </div>
+</body>
+</html>

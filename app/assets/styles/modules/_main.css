@@ -1,0 +1,168 @@
+.large-hero {
+	border-bottom: 10px solid var(--mainBlue);
+	position: relative;
+
+	&__image {
+		display: block;
+	}
+
+	&__text-content {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 0;
+	width: 100%;
+	text-align: center;
+	}
+
+	&__title {
+	font-weight: 300;
+	color: var(--mainBlue);
+	margin: 0;
+	font-size: 2.4rem;
+
+	@mixin Small{
+		font-size: 4.8rem;
+		}
+	}
+
+	&__subtitle {
+	font-weight: 300;
+	color: var(--mainBlue);
+	font-size: 1.5rem;
+	margin: 0;
+
+	@mixin Small{
+		font-size:2.9rem;
+		}
+	}
+
+	&__description {
+		color: #FFF;
+		font-size: 1.1rem;
+		font-weight: 100;
+		text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+		max-width: 30rem;
+		margin: 1rem auto;
+
+		@mixin Small{
+		font-size:2.9rem;
+		}
+	}
+}
+.page-section {
+	padding: 4.5rem 0;
+
+	&--blue {
+		background-color: var(--mainBlue);
+		color: #FFF;
+	}
+}
+.wrapper {
+	overflow: hidden;
+	padding-left: 18px;
+	padding-right: 18px;
+	max-width: 1236px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.headline {
+	font-size: 1.9rem;
+	font-weight: 300;
+	color: $mainBlue;
+
+	@mixin Small {
+		font-size: 2.875rem;
+	}
+
+	&--orange {
+		color: $mainOrange;
+	}
+
+	&--small {
+		font-size: 1.2rem;
+
+		@mixin Small {
+			font-size: 1.875rem;
+		}
+	}
+
+	&--narrow {
+		max-width: 500px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	&--light {
+		font-weight: 100;
+	}
+
+	strong {
+		font-weight: 400;
+	}
+
+	&--mg-b-small {
+		margin-bottom: .5em;
+	}
+
+	&--mg-b-large {
+		margin-bottom: 1.6em;
+	}
+}
+
+.row {
+
+	@mixin Clear;
+
+	&--gutters {
+		margin-right: -65px;
+	}
+	&--gutters > div {
+		padding-right: 65px;
+		box-sizing: border-box;
+	}
+	&__mg-b-medium {
+		margin-bottom: 1rem;
+	}
+
+	@mixin Medium {
+		&__mg-b-medium {
+			margin-bottom: 0;
+		}
+		&__medium-4 {
+			float: left;
+			width: 33.33%
+		}
+		&__medium-4--larger {
+			width: 37%;
+		}
+		&__medium-8 {
+			float: left;
+			width: 66.66%;
+		}
+		&__medium-8--smaller {
+			width: 63%;
+		}
+	}
+}
+.mg-b {
+	margin-bottom: 1rem;
+	@mixin Small { 
+		margin-bottom: 3.875rem
+	}
+}
+.no-mg-t {
+	margin-top: 0;
+}
+.content-container {
+	p {
+		line-height: 1.65;
+		margin: 1.8rem 0;
+		@mixn Small {
+			font-size: 1.125rem;
+		}
+	}
+	p a {
+	font-weight: 700;		
+	}
+}

@@ -9,6 +9,9 @@ img {
 a {
 	color: var(--mainOrange);
 }
+* {
+  box-sizing: border-box;
+}
 .center {
 	text-align: center;
 	margin-right: auto;

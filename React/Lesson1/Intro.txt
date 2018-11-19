@@ -1,0 +1,5 @@
+React 簡介 (為何我們使用React)
+https://medium.com/4cats-io/2016-%E5%B9%B4%E3%81%AE%E5%89%8D%E7%AB%AF-%E7%98%8B%E4%BB%80%E9%BA%BC-reactjs-4727a6ecc85a
+
+React與JQuery之比較
+http://xunli.xyz/2016/01/16/react-vs-jquery/

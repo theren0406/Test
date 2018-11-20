@@ -7,7 +7,8 @@ class Note extends Component {
     super(props);
     this.state = {
       comment: '',
-      post: []
+      post: [],
+      counter: 0
     };
   }
 
@@ -25,12 +26,12 @@ class Note extends Component {
   set() {
     // Wrong
     this.setState({
-      counter: this.state.counter + this.props.increment,
+      counter: this.state.counter + 1,
     });
     // Correct
     this.setState(function (state, props) {
       return {
-        counter: state.counter + props.increment
+        counter: state.counter + 1
       };
     });
   }
@@ -38,11 +39,11 @@ class Note extends Component {
   // React自動 merge state Object
   componentDidMount() {
       this.setState({
-        posts: response.posts
+        posts: [123, 234]
       });
 
       this.setState({
-        comments: response.comments
+        comments: 'response.comments'
       });
   }
 

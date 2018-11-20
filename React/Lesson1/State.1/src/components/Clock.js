@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 
 class Clock extends Component {
+
+  // props 資料從父源件來 不可修改
+
+  // state 資料在 class component裡 可作修改
+
   // 1.component初始化
   constructor(props) {
     super(props);
@@ -9,14 +14,19 @@ class Clock extends Component {
     };
   }
 
-
   // 3. component繪製完成
   componentDidMount() {
     this.timerID = setInterval(
-      // () => this.tick(),
-      this.tick.bind(this),
+      // function() { this.tick() },
+      () => this.tick(),
+      // this.tick.bind(this),
       1000
     );
+    console.log('didMount');
+  }
+
+  componentDidUpdate() {
+    console.log('updated');
   }
 
   // 4. component將被移除
@@ -31,11 +41,13 @@ class Clock extends Component {
   }
 
   // 2.將component繪製到畫面上
+  // state 或是 props 的值改變時，render method會重跑一次，重新繪製畫面
   render() {
+    const { date } = this.state;
     return (
       <div>
         <h1>Hello, world!</h1>
-        <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+        <h2>It is {date.toLocaleTimeString()}.</h2>
       </div>
     );
   }

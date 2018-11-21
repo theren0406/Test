@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 
 import Child from './Child';
 
-// props 資料從父源件來 不可修改
-// state 資料在 class component裡 可作修改
-
 class Clock extends Component {
 
   // 1.component初始化
@@ -23,11 +20,11 @@ class Clock extends Component {
       // this.tick.bind(this),
       1000
     );
-    console.log('didMount');
+    console.log('clock didMount');
   }
 
   componentDidUpdate() {
-    console.log('updated');
+    console.log('clock updated');
   }
 
   // 4. component將被移除
@@ -46,6 +43,7 @@ class Clock extends Component {
   // state 或是 props 的值改變時，render method會重跑一次，重新繪製畫面
   render() {
     const { date } = this.state;
+    console.log('clock render');
     return (
       <div>
         <h1>Hello, world!</h1>

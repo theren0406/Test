@@ -34,9 +34,10 @@
     const element = React.createElement(
       'div',
       { className: 'greeting' },
-      h1
-      // h1, p, hello
+      h1, p, hello
     );
+
+    // 外層只可放一個element至 html的root (但element 可以是陣列)
 
     ReactDOM.render(
       element,

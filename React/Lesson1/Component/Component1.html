@@ -24,7 +24,7 @@
     // -- Notice!! Component 名稱開頭必須要是大寫 
 
     // Class Component 可使用State & Lifecircle (下一篇會講到)
-    class UserInfo extends React.Component {
+    class UserInfoByClass extends React.Component {
       render() {
         return (
           <div>
@@ -56,10 +56,17 @@
       );
     }
 
+    ReactDOM.render(
+      <Users />,
+      document.getElementById('root')
+    );
+
 
 
 
     // 使用props傳遞資料(由上往下傳遞)，做客製化設定
+    // 客製化component 無法使用 html的屬性，只做傳遞
+    // props 可傳遞字串 物件 陣列等等...
 
     function User(props) {
       return (
@@ -69,6 +76,7 @@
         </div>
       );
     }
+
     function UserList() {
       const userUrl = "https://www2.gomaji.com/img/gomajidream.png"
       return (
@@ -80,6 +88,11 @@
       );
     }
 
+    // ReactDOM.render(
+    //   <UserList />,
+    //   document.getElementById('root')
+    // );
+
 
 
 
@@ -88,11 +101,11 @@
     
     // props are read-only
     // ---correct
-    function User(props) {
+    function OhUser(props) {
       return <h1>Hello, {props.firstName + props.lastName}</h1>;
     }
     // ---wrong !!
-    function UserAccount(props) {
+    function OhUserAccount(props) {
       return <h1>Your account amount: {props.total += props.amount}</h1>;
     }
 
@@ -103,7 +116,7 @@
 
     // component的內容預設被當作children傳遞
     // component 也可當作props傳遞，
-    function User(props) {
+    function MyUser(props) {
       return (
         <h3>
           Hello, {props.name}
@@ -118,25 +131,25 @@
     function App() {
       return (
         <div className="app">
-          <User name="Sara">
+          <MyUser name="Sara">
             <button className="btn">Button</button>
-          </User>
-          <User name="Cahal"/>
-          <User name="Edite">
+          </MyUser>
+          <MyUser name="Cahal"/>
+          <MyUser name="Edite">
             <div>
               <p style={{color: 'pink'}}>notice</p>
               <Message id="1"/>
             </div>
-          </User>
-          <User name="Cahal" />
+          </MyUser>
+          <MyUser name="Cahal" />
         </div>
       );
     }
 
-    ReactDOM.render(
-      <App />,
-      document.getElementById('root')
-    );
+    // ReactDOM.render(
+    //   <App />,
+    //   document.getElementById('root')
+    // );
 
 
 

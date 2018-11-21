@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>React</title>
+  <style>
+    .btn {
+      display: block;
+      font-size: 20px;
+      padding: 5px 10px;
+      margin: 15px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+  
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+  <script>
+    const element = React.createElement(
+      'button',
+      { className: 'btn' },
+      'Hello World'
+    );
+
+    // reactElement 可重複使用，方便維護
+
+    // const elements = [element, element, element];
+
+    // 只可放一個element至 html的root (但element 可以是陣列)
+    ReactDOM.render(
+      element,
+      document.getElementById('root')
+    );    
+  </script>
+</body>
+
+</html>

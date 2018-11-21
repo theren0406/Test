@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>React</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script>
+    const h1 = React.createElement(
+      'h1',
+      { className: 'title' },
+      'my title!'
+    );
+    const p = React.createElement(
+      'p',
+      null,
+      'my content'
+    );
+    const hello = React.createElement(
+      'div',
+      null,
+      'Hello world'
+    );
+
+    const element = React.createElement(
+      'div',
+      { className: 'greeting' },
+      h1
+      // h1, p, hello
+    );
+
+    ReactDOM.render(
+      element,
+      document.getElementById('root')
+    );    
+  </script>
+
+  <script type="text/babel">
+    // const JSXelement = (
+    //   <div className="greeting">
+    //      <h1>Title!</h1>
+    //      <p>Content</p>
+    //      <div>hello world!</div>
+    //    </div>
+    // );
+
+    // ReactDOM.render(
+    //   JSXelement,
+    //   document.getElementById('root')
+    // ); 
+  </script>
+</body>
+
+</html>

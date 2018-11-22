@@ -1,7 +1,7 @@
 
 # Simple React Start 
 
-學習如何使用webpack打造 ReactJS 開發環境的便利
+學習如何使用webpack 打造便利的 ReactJS 開發環境
 
 ## 參考資訊
 

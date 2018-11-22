@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 
 import Typer from './Typer';
 
@@ -11,5 +11,3 @@ export default class App extends Component {
     );
   }
 }
-
-// export default App

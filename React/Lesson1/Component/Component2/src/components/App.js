@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import Comment from './Comment';
 
+//名稱可自取，但通常使用props作為名稱
+
 const props = {
   author: {
     avatarUrl: 'https://www2.gomaji.com/img/gomajidream.png',

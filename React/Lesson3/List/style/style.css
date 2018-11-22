@@ -1,7 +1,14 @@
+.rowTwo {
+  margin-left: 30px;
+}
+.rowThree {
+  margin-left: 60px;
+}
 .btn {
   font-size: 20px;
   padding: 10px 20px;
-  margin: 10px 10px 10px 20px;
+  margin: 5px;
+  width: 60px;
   border-width: 2px;
   border-radius: 5px;
   cursor: pointer;

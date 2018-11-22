@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Destrucuring</title>
+</head>
+<body>
+  <script>
+    // 1. Destructuring with Object ------- (非常常用) 
+    const fruit = {
+      type: 'banana',
+      price: '$45 NTD',
+      amount: 30
+    };
+
+    const type = fruit.type;
+    const price = fruit.price;
+    const amount = fruit.amount;
+
+    // ES6
+    // const { type } = fruit;
+    // const { price } = fruit;
+    // const { amount } = fruit;
+
+    // const { type, price, amount } = fruit;
+
+
+    // 實例
+    const savedfiled = {
+      extension: 'jpg',
+      name: 'repost',
+      size: 14040
+    };
+
+    function fileSummary(file) {
+      return `The file ${file.name}.${file.extension} is of size ${file.size}`;
+    }
+
+    // ES6
+    // function fileSummary({ name, extension, size }) {
+    //   return `The file ${name}`.${extension} is of size ${size}`;
+    // }
+
+    fileSummary(savedfiled);
+
+
+
+
+    // 2. Destructuring with Array --------- (較不常使用)
+
+    const companies = [
+      'Google',
+      'Facebook',
+      'Uber'
+    ];
+
+    const firstCompany = companies[0];
+
+    // const [ name, name2, name3 ] = companies;
+    // console.log(name);
+
+
+    // 若使用大括號(curly braces)，會抓取attribute
+    // undefined
+    const { name } = companies;  
+
+    // correct
+    const { length } = companies;
+
+
+    // 與 rest and spread 做結合
+    const [ firstName, ...rest ] = companies;
+    console.log(rest);
+
+
+
+    // 3. Destructuring with Object and Array ----- (進階)
+    const myCompanies = [
+      { name: 'Google', location: 'Mountain View' },
+      { name: 'Facebook', location: 'Menlo Park' },
+      { name: 'Uber', location: 'San Francisco' }
+    ]
+      
+    const [{ myLocation }] = myCompanies;
+    console.log(myLocation);
+
+    
+    // 進階實例
+    const point = [
+      [4, 5],
+      [10, 1],
+      [0, 40]
+    ];
+
+    points.map(([x, y]) => {
+      return { x: x, y: y };
+    });  
+
+    // 超進階實例
+    const Google = {
+      locations: ['Mountain View', 'New York', 'London' ]
+    }; 
+
+    const { locations: [location] } = Google;
+    console.log();
+  </script>
+</body>
+</html>

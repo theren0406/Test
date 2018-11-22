@@ -1,2 +1,8 @@
 JavaScript ES6的import, export, default使用方法
 https://www.nctusam.com/2017/11/12/368/
+
+JS 的 Array methods，使用時需注意method 是直接修改原本的array or 回傳新array
+https://www.w3schools.com/jsref/jsref_obj_array.asp 
+
+ES6 系列筆記
+https://pjchender.blogspot.com/search/label/es6

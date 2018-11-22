@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 
 import Child from './Child';
 
+// http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+// react 生命週期圖表
 class Clock extends Component {
 
-  // 1.component初始化
+  // 1. component初始化
   constructor(props) {
     super(props);
     this.state = {
@@ -12,7 +14,7 @@ class Clock extends Component {
     };
   }
 
-  // 3. component繪製完成
+  // 3. component繪製完成，呼叫tick funciton裡的setState修改state的值
   componentDidMount() {
     this.timerID = setInterval(
       // function() { this.tick() },
@@ -21,17 +23,7 @@ class Clock extends Component {
       1000
     );
     console.log('clock didMount');
-  }
-
-  componentDidUpdate() {
-    console.log('clock updated');
-  }
-
-  // 4. component將被移除
-  componentWillUnmount() {
-    console.log('willUnmount');
-    clearInterval(this.timerID);
-  }
+  }  
 
   tick() {
     this.setState({
@@ -39,8 +31,20 @@ class Clock extends Component {
     });
   }
 
-  // 2.將component繪製到畫面上
-  // state 或是 props 的值改變時，render method會重跑一次，重新繪製畫面
+  // 5. 重新繪製畫面完成
+  componentDidUpdate() {
+    // console.log('clock updated');
+  }
+
+  // 6. component將被移除
+  componentWillUnmount() {
+    console.log('willUnmount');
+    clearInterval(this.timerID);
+  }
+
+
+  // 2. 將component繪製到畫面上
+  // 4. state 或是 props 的值改變時，render method會重跑一次，重新繪製畫面
   render() {
     const { date } = this.state;
     console.log('clock render');

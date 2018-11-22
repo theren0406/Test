@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Rest and Spread</title>
+</head>
+<body>
+  <script>
+
+    // 1. 將陣列內的items展開
+
+    const defaultColors = ['red', 'green'];
+    const userFavoriteColors = ['orange', 'yellow'];
+    // const newColor = ['pink', 'blue'];
+
+    defaultColors.concat(userFavoriteColors);
+
+    // [ ...defaultColors, ...userFavoriteColors ];
+    // [ 'pink', 'blue', ...defaultColors, ...userFavoriteColors ];
+
+
+
+    // 2. 將items放入陣列中
+    
+    function addNumbers() {
+      return numbers.reduce((sum, number) => {
+        return sum + number;
+      }, 0);
+    }
+    
+    addNumbers(1, 2, 3, 4, 5, 6, 7);
+
+
+
+    // 實例
+    function validateShoppingList(...items) {
+      if (items.indexOf('milk') < 0) {
+        return [ 'milk', ...items ];
+      }
+      return items;
+    }
+
+    validateShoppingList('apple', 'bread', 'eggs');
+
+
+
+    // js library的實際運用(advanced)
+
+    const MathLibrary = {
+      calculateProduct(...rest) {
+        console.log('please use the multiply method instead');
+        return this.multiply(...rest);
+      },
+      multiply(a, b) {
+        return a * b;
+      }
+    }
+
+  </script>
+</body>
+</html>

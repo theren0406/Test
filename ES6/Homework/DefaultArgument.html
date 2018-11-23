@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Default Argument</title>
+</head>
+
+<body>
+  <script>
+    // 1. 使用預設參數
+    function sum(a, b) {
+      if (a === undefined) {
+        a = 0;
+      }
+
+      if (b === undefined) {
+        b = 0;
+      }
+
+      return a + b;
+    }
+
+    // 2. 使用預設參數
+    function addOffset(style) {
+      if (!style) {
+        style = {};
+      }
+
+      style.offset = '10px';
+
+      return style;
+    }
+  </script>
+</body>
+
+</html>

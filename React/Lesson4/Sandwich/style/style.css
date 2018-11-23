@@ -1,0 +1,22 @@
+.food {
+  width: 300px;
+  height: 300px;
+}
+.cheese {
+  background-color: golden;
+}
+
+.btn {
+  font-size: 20px;
+  padding: 10px 20px;
+  margin: 10px 10px 10px 20px;
+  border-width: 2px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.output {
+  font-size: 24px;
+  margin: 20px;
+  letter-spacing: 1px;
+  color: lightsalmon;
+}

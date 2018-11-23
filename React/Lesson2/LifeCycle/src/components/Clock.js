@@ -14,7 +14,8 @@ class Clock extends Component {
     };
   }
 
-  // 3. component繪製完成，呼叫tick funciton裡的setState修改state的值
+  // 3. component繪製完成，呼叫tick funciton裡的setState修改state的值 
+  // componentDidMount 只會被呼叫一次
   componentDidMount() {
     this.timerID = setInterval(
       // function() { this.tick() },
@@ -44,7 +45,7 @@ class Clock extends Component {
 
 
   // 2. 將component繪製到畫面上
-  // 4. state 或是 props 的值改變時，render method會重跑一次，重新繪製畫面
+  // 4. state 或是 props 的值改變時，render method會重跑一次，重新繪製畫面後
   render() {
     const { date } = this.state;
     console.log('clock render');

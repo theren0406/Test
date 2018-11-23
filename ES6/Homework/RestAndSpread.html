@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Rest and Spread</title>
+</head>
+
+<body>
+  <script>
+    // 1. 使用ES6語法 回傳一個新的陣列包含array1 & array2的內容
+    function join(array1, array2) {
+      return array1.concat(array2);
+    }
+
+    // 2. 將傳入function的參數改為ES6寫法
+    function product(a, b, c, d, e) {
+      var numbers = [a, b, c, d, e];
+
+      return numbers.reduce(function (acc, number) {
+        return acc * number;
+      }, 1)
+    }
+  </script>
+</body>
+
+</html>

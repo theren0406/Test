@@ -6,16 +6,31 @@ export default class Form extends Component {
   state = {
     name: '',
     age: 0,
+    gender: '',
     users: [
       {
         name: 'Cindy',
-        age: 18
+        age: 18,
+        gender: 'female'
       }
     ]
   }
   
   handleInputChange = (e) => {
-    const type = e.target.type === 'text' ? 'name' : 'age';
+    let type = '';
+    switch(e.target.type) {
+      case 'text':
+        type = 'name'
+        break;
+      case 'number':
+        type = 'age'
+        break;
+      case 'radio':
+        type = 'gender'
+        break;
+      default: 
+        break;
+    }
     this.setState({
       [type]: e.target.value
     });
@@ -30,8 +45,8 @@ export default class Form extends Component {
   // }
 
   handleSubmit = (e) => {
-    const { name, age } = this.state;
-    const user = { name: name, age: parseInt(age) };
+    const { name, age, gender } = this.state;
+    const user = { name, age: parseInt(age), gender };
 
     // 不可直接修改 state
     // wrong!!
@@ -59,6 +74,13 @@ export default class Form extends Component {
           <label>
             Age :   &ensp;
             <input type="number" value={this.state.age} onChange={this.handleInputChange} />
+          </label>
+          <label>
+            Gender :
+            <input type="radio" value="male" name="gender" 
+              onChange={this.handleInputChange} /> Male
+            <input type="radio" value="female" name="gender"
+              onChange={this.handleInputChange} /> Female
           </label>
           <input className="submit" type="submit" value="Submit" />
         </form>

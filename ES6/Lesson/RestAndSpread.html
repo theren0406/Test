@@ -17,21 +17,30 @@
 
     defaultColors.concat(userFavoriteColors);
 
-    // [ ...defaultColors, ...userFavoriteColors ];
-    // [ 'pink', 'blue', ...defaultColors, ...userFavoriteColors ];
+    [ ...defaultColors, ...userFavoriteColors ];
+    [ 'pink', 'blue', ...defaultColors, ...userFavoriteColors ];
 
 
 
     // 2. 將items放入陣列中
-    
-    function addNumbers() {
+    // old
+    function addNumbers(a, b, c, d) {
+      let numbers = [a, b, c, d];
+
       return numbers.reduce((sum, number) => {
         return sum + number;
       }, 0);
     }
-    
-    addNumbers(1, 2, 3, 4, 5, 6, 7);
+    addNumbers(1, 2, 3, 4);
 
+    // new
+    function addNumbers(...numers) {
+      return numbers.reduce((sum, number) => {
+        return sum + number;
+      }, 0);
+    }  
+    addNumbers(1, 2, 3, 4, 5, 6, 7);
+    
 
 
     // 實例
@@ -46,7 +55,7 @@
 
 
 
-    // js library的實際運用(advanced)
+    // js library的實際運用(進階)
 
     const MathLibrary = {
       calculateProduct(...rest) {

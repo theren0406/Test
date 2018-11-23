@@ -1,20 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Template Strings</title>
 </head>
+
 <body>
   <script>
     function getMessage() {
       const year = new Date().getFullYear();
 
-      return 'The year is ' + year;
+      return `The year is ${year}`;
     }
+
+    function getMessage() {
+      return `The year is ${new Date().getFullYear()}`;
+    }
+
     getMessage();
     
+
+    // 使用於JSON字串
+    const device_id = 4;
+    const guid = 20;
+    const username = 'Cindy';
+
+    const data = '{"device_id": "' + device_id + '","guid":"' + guid + '","username":"' + username + '","}';
+
+    data = `{"device_id": "${device_id}", "guid": "${guid}", "username": "${username}"}`;
+
   </script>
 </body>
+
 </html>

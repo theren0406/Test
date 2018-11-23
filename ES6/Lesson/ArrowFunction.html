@@ -26,6 +26,27 @@
   
   // const multiple = number => number * 2;
 
+  const showTwo = () => {
+    return 2;
+  }
+
+
+  // use arrow function in Object or Class
+  const team = {
+    members: ['Jane', 'Bill', 'Cindy'],
+    teamName: 'Super Squad',
+    teamSummary: function() {
+      // 1. var self = this;
+      return this.members.map(function(member) {
+        return `${member} is on team ${this.teamName}`; 
+        // 2. use .bind(this)
+        // 3. use arrow function
+      });
+    }
+  }
+
+  console.log(team.teamSummary());
+
   </script>
 </body>
 </html>

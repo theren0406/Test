@@ -21,7 +21,7 @@
 
 
 
-    // map (回傳一個新的array)
+    // map (回傳一個新的array) - 常用
     const cars = [
       { model: 'Buick', price: 100 },
       { model: 'Camaro', price: 300 }
@@ -30,6 +30,57 @@
     const prices = cars.map(function(car){
       return car.price;
     });
+
+
+    // filter (只回傳條件符合的item) - 常用
+    const products = [
+      { name: 'cucumber', type: 'vegetable' },
+      { name: 'banana', type: 'fruit' },
+      { name: 'celery', type: 'vegetable' },
+      { name: 'apple', type: 'fruit' }
+    ];
+    
+    let filteredProducts = [];
+
+    for(let i= 0; i < products.length; i++) {
+      if (products[i].type === 'fruit') {
+        filteredProducts.push(products[i]);
+      }
+    }
+
+    products.filter(function(product){
+      return product.type === 'fruit';
+    });
+    
+
+    // 實例 
+    const post = { id: 4, title: 'New Post' };
+    const comments = [
+      { postId: 4, content: 'awesome post' },
+      { postId: 3, content: 'awesome post' },
+      { postId: 4, content: 'awesome post' }
+    ];
+
+    function commentsForPost(post, comments) {
+      return comments.filter(function(comment) {
+        return comment.postId === post.id;
+      });
+    }
+
+
+
+    // reduce (function執行完return的結果會被當做第一個參數)
+    const numbers = [10, 20, 30];
+    let sum = 0;
+
+    for(var i = 0; i < numbers.length; i++) {
+      sum += numbers[i];
+    }
+
+    let y = numbers.reduce(function(sum, number){
+      return sum += number;
+    }, 0);
+
 
 
   </script>

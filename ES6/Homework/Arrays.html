@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Array Helpers</title>
+</head>
+
+<body>
+  <script>
+    // forEach ----------- 
+    // 請將for loop 改為使用 forEach method
+    function handlePosts() {
+      const posts = [
+        { id: 23, title: 'Daily JS News' },
+        { id: 52, title: 'Code Refactor City' },
+        { id: 105, title: 'The Brightest Ruby' }
+      ];
+
+      for (var i = 0; i < posts.length; i++) {
+        savePost(posts[i]);
+      }
+    }
+
+
+
+    // map ----------
+    // 1. 請回傳一個陣列只包含 height, ex: ['34px', '54px', '83px']
+    const images = [
+      { height: '34px', width: '39px' },
+      { height: '54px', width: '19px' },
+      { height: '83px', width: '75px' },
+    ];
+
+    let heights;
+
+    // 2. 請回傳一個陣列包含三個速度(距離/時間 = 速度)
+    const trips = [
+      { distance: 34, time: 10 },
+      { distance: 90, time: 50 },
+      { distance: 59, time: 25 }
+    ];
+
+    let speeds;
+
+
+    // filter -----------
+    // 1. 請回傳一個陣列只包含大於50的數字
+    const numbers = [15, 25, 35, 45, 55, 65, 75, 85, 95];
+
+    let filteredNumbers;
+
+    // 2. 請回傳一個陣列只包含有管理權限(admin)的user
+    const users = [
+      { id: 1, admin: true },
+      { id: 2, admin: false },
+      { id: 3, admin: false },
+      { id: 4, admin: false },
+      { id: 5, admin: true },
+    ];
+
+    let filteredUsers;
+
+
+
+    // reduce ------------
+    // 1.請算出所有距離的總和
+    var trips = [
+      { distance: 34 },
+      { distance: 12 },
+      { distance: 1 }
+    ];
+
+    var totalDistance;
+
+    // 2.請回傳一個物件，總計各個type的數量{ sitting: 3, standing: 4 }
+    var desks = [
+      { type: 'sitting' },
+      { type: 'standing' },
+      { type: 'sitting' },
+      { type: 'sitting' },
+      { type: 'standing' }
+    ];
+
+
+  </script>
+</body>
+
+</html>

@@ -10,6 +10,9 @@ Tutorial: How to set up React, webpack 4, and Babel 7 (2018)https://www.valentin
 React + Webpack 4 + Babel 7 Setup Tutorial
 https://www.robinwieruch.de/minimal-react-webpack-babel-setup/
 
+Airbnb React/JSX Style Guide
+https://github.com/airbnb/javascript/tree/master/react
+
 ## 特色
 
 * [react 16.6.3]

@@ -38,17 +38,15 @@
 
     // js可寫在JSX裡面，JSX也可放在js內，成為js function 回傳的物件 
     function getGreeting(user) {
-      const userTwo = {
-        firstName: 'Andy',
-        lastName: 'Yeh'
-      };
-      return <h1>Hello, {formatName(userTwo)}!</h1>;
+      if (user) {
+        return <h1>Hello, {formatName(user)}!</h1>;
+      }
+      return <h1>Hello, Stranger.</h1>;
     }
-
     const elementThree = getGreeting();
 
     ReactDOM.render(
-      element,
+      elementThree,
       document.getElementById('root')
     );    
   </script>

@@ -1,0 +1,18 @@
+{
+  "name": "webpack-sample",
+  "version": "1.0.0",
+  "description": "Simple starter package for webpack",
+  "main": "index.js",
+  "repository": "",
+  "scripts": {
+    "start": "webpack-dev-server --mode development",
+    "build": "webpack --mode production --config webpack.config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  }
+}

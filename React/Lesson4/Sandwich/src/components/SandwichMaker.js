@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import OrderButton from './OrderButton';
-
+import Modal from './Modal';
 export default class SandwichMaker extends Component {
   state = {
     ingredients: [
@@ -10,7 +10,8 @@ export default class SandwichMaker extends Component {
       { id: 'cucumber', name: '小黃瓜', amount: 1, price: 5 },
       { id: 'ham', name: '火腿', amount: 1, price: 15 },
     ],
-    totalPrice: 42
+    totalPrice: 42,
+    modalIsShowed: false
   }
 
   handleAddIngred = (ingredId) => {
@@ -41,8 +42,16 @@ export default class SandwichMaker extends Component {
     }
   }
 
+  openOrderModal = () => {
+    this.setState({ modalIsShowed: true });
+  }
+
+  closeOrderModal = () => {
+    this.setState({ modalIsShowed: false });
+  }
+
   render() {
-    const { ingredients, totalPrice } = this.state;
+    const { ingredients, totalPrice, modalIsShowed } = this.state;
     return (
       <div className="row">
         <ul className="col-md-6">
@@ -72,7 +81,11 @@ export default class SandwichMaker extends Component {
             />
           ))}
           <p className="totalPrice">總金額 : {totalPrice} NTD</p>
+          <button className="myBtn confirmBtn orderBtn" onClick={this.openOrderModal}>購買</button>
         </div>
+        <Modal ingreds={ingredients} price={totalPrice} isShowed={modalIsShowed}
+          closeModal={this.closeOrderModal}
+        />
       </div>
     );
   }

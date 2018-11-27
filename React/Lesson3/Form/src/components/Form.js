@@ -66,7 +66,7 @@ export default class Form extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form className="sampleForm" onSubmit={this.handleSubmit}>
           <label>
             Name : 
             <input type="text" value={this.state.name} onChange={this.handleInputChange} />
@@ -82,7 +82,7 @@ export default class Form extends Component {
             <input type="radio" value="female" name="gender"
               onChange={this.handleInputChange} /> Female
           </label>
-          <input className="submit" type="submit" value="Submit" />
+          <input className="submitBtn" type="submit" value="Submit" />
         </form>
         <UserList list={this.state.users}/>
       </div>

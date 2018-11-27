@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 
-import '../../style/style.css';
-import SandwichMaker from './SandwichMaker';
+import DataTable from './DataTable';
 
 export default class App extends Component {
   render() {
     return (
-      <div className="container">
-        <SandwichMaker />
+      <div>
+        <DataTable />
       </div>
     );
   }

@@ -1,0 +1,169 @@
+:root {
+  --main-color: rgb(255, 233, 227);
+  --sub-color: rgb(255, 171, 147);
+  --third-color: rgb(253, 134, 101);
+  --word-black: rgb(55, 55, 55);
+}
+body {
+  font-family: MicroSoft JhengHei, sans-serif;
+  color: var(--word-black);
+  font-size: 18px;
+}
+ul {
+  list-style-type: none;
+}
+header {
+  margin: 10px 50px 50px;
+}
+button {
+  cursor: pointer;
+}
+.nav {
+  display: inline-block; 
+}
+.nav a {
+  margin: 0 0 0 100px;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--word-black);
+  border-bottom: 4px solid var(--main-color);
+  transition: border-color 0.5s;
+}
+.nav a:hover {
+  text-decoration-line: none;
+  border-color: var(--third-color);
+}
+.container {
+  margin-top: 10px;
+}
+.logo {
+  width: 100px;
+  border-radius: 10px;
+}
+.myBtn {
+  padding: 3px 12px 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--main-color);
+}
+.confirmBtn {
+  float: right;
+  background-color: var(--sub-color);
+  padding: 8px 20px;
+}
+.confirmBtn:hover {
+  background-color: var(--third-color);
+  color: white;
+}
+.orderBtn {
+  margin-top: 15px;
+}
+.orderAmount .myBtn{
+  margin-right: 20px;
+}
+.orderName {
+  display: inline-block;
+  width: 150px;
+  margin-bottom: 20px;
+}
+.orderName span, .ingredName span {
+  font-size: 14px;
+}
+.totalPrice {
+  text-align: right;
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+.orderItem {
+  padding: 20px 5px 5px 25px;
+  font-size: 16px;
+  width: 550px;
+  margin: 0 auto 10px;
+  border: 2px dashed var(--sub-color);
+  border-radius: 10px;
+}
+.orderItem p {
+  margin: 8px 0;
+}
+.orderItem span {
+  margin: 0 5px;
+  font-size: 14px;
+}
+.orderItem span.orderPrice {
+  font-size: 16px;
+  color: var(--third-color);
+}
+.orderTime {
+  float: right;
+  color: dimgray;
+}
+.orderClose span {
+  font-size: 20px;
+  color: crimson;
+  position: relative;
+  top: -16px;
+}
+.modal-backdrop {
+  background-color: rgb(200, 200, 200);
+}
+.modal {
+  top: 30px;
+}
+.modal-header, .modal-body, .modal-footer {
+  padding: 1rem 2rem 1rem 3rem;
+}
+.modal-header {
+  border: none;
+}
+.modal .myBtn {
+  padding: 8px 12px;
+  margin-left: 15px;
+}
+.food {
+  font-size: 18px;
+  width: 300px;
+  height: 10px;
+  margin-bottom: 8px;
+  opacity: 0.6;
+  border-radius: 3px;
+}
+.bread {
+  height: 22px;
+  border: 2px solid black;
+}
+.tomato {
+  background-color: tomato;
+}
+.egg {
+  background-color: gold;
+}
+.ham {
+  background-color: firebrick;
+}
+.cucumber {
+  background-color: green;
+}
+
+/*  loader  */
+.loader {
+  border: 24px solid white;
+  border-radius: 50%;
+  border-top: 24px solid var(--sub-color);
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  margin: 200px auto;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

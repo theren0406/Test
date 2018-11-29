@@ -30,12 +30,18 @@
       'Hello World'
     );
 
+    const div = React.createElement(
+      'div',
+      null,
+      'Hi div'
+    );
+
     // reactElement 可重複使用，方便維護
 
-    // const elements = [element, element, element];
+    const elements = [element, element, [div, div], element];
 
     ReactDOM.render(
-      element,
+      elements,
       document.getElementById('root')
     );    
   </script>

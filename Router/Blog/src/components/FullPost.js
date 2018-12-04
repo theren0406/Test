@@ -7,7 +7,7 @@ class FullPost extends Component {
 	}
 
 	componentDidMount() {
-		// console.log(this.props);
+		console.log(this.props);
 		const { id } = this.props.match.params;
 
 		axios.get(`/posts/${id}.json`)
@@ -20,9 +20,8 @@ class FullPost extends Component {
 		axios.delete(`/posts/${this.props.match.params.id}.json`)
 			.then(res => {
 				console.log(res);
+				this.props.history.push('/posts');
 			});
-
-		this.props.history.push('/posts');
 	}
 
 	render() {

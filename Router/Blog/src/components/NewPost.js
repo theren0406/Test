@@ -45,7 +45,7 @@ class NewPost extends Component {
 					onChange={(e) => this.handleInputChange(e, 'content')} 
 				/>
 				<Input label="作者" inputType="select" value={author} 
-					onChange={(e) => this.handleInputChange(e, 'author')} options={['Max', 'Lily', 'Joe', 'Wendy']}
+					onChange={(e) => this.handleInputChange(e, 'author')} options={['Max', 'Lily', 'Joe', 'Wendy', 'Cindy']}
 				/>
 				<button className="myBtn addBtn" onClick={this.handleSendPost}>新增</button>
 			</div>

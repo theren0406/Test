@@ -1,0 +1,184 @@
+:root {
+  --main-color: rgb(255, 233, 227);
+  --sub-color: rgb(255, 171, 147);
+  --third-color: rgb(253, 134, 101);
+  --word-black: rgb(55, 55, 55);
+}
+body {
+  font-family: MicroSoft JhengHei, sans-serif;
+  color: var(--word-black);
+  font-size: 18px;
+}
+ul {
+  list-style-type: none;
+}
+header {
+  margin: 10px auto 50px;
+  width: 750px;
+}
+button {
+  cursor: pointer;
+}
+button:focus {
+  outline: 5px auto var(--sub-color);
+}
+.nav {
+  display: inline-block; 
+}
+.nav a {
+  margin: 0 0 0 60px;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--word-black);
+  border-bottom: 4px solid var(--main-color);
+  transition: border-color 0.5s;
+}
+.nav a:hover, .nav a.active {
+  text-decoration-line: none;
+  border-color: var(--third-color);
+}
+.container {
+  margin-top: 10px;
+}
+.logo {
+  width: 100px;
+  border-radius: 10px;
+}
+.myBtn {
+  border: none;
+  padding: 8px 20px;
+  border-radius: 5px;
+  background-color: var(--main-color);
+}
+.btnContainer {
+  text-align: right;
+}
+.btnContainer .confirmBtn, .btnContainer .cancelBtn {
+  float: none;
+  margin-left: 15px;
+}
+.confirmBtn, .cancelBtn {
+  margin-top: 15px;
+  float: right;
+}
+.confirmBtn {
+  background-color: var(--sub-color);
+}
+.confirmBtn:hover {
+  background-color: var(--third-color);
+  color: white;
+}
+.orderAmount .myBtn{
+  padding: 3px 12px 5px;
+  margin-right: 20px;
+}
+.orderDetail {
+  width: 280px;
+  margin: 0 auto;
+}
+.orderName {
+  display: inline-block;
+  width: 150px;
+  margin-bottom: 20px;
+}
+.orderName span, .ingredName span {
+  font-size: 14px;
+}
+.totalPrice {
+  text-align: right;
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+.orderItem {
+  padding: 18px 5px 8px 25px;
+  font-size: 17px;
+  width: 550px;
+  margin: 0 auto 10px;
+  border: 2px dashed var(--sub-color);
+  border-radius: 10px;
+}
+.orderItem p {
+  margin: 8px 0;
+}
+.orderItem span {
+  margin: 0 5px;
+  font-size: 15px;
+}
+.orderItem span.orderPrice {
+  font-size: 16px;
+  color: var(--third-color);
+}
+.orderTime {
+  float: right;
+  color: dimgray;
+}
+.orderClose {
+  position: relative;
+  top: -16px;
+}
+.orderClose span {
+  font-size: 20px;
+  color: crimson;
+}
+.checkout {
+  padding: 0 30px;
+  text-align: center;
+}
+.checkout h5 {
+  margin-bottom: 20px;
+}
+.contact {
+  margin: 50px 0 120px; 
+}
+.contact .col-form-label {
+  font-size: 16px;
+}
+.form-control {
+  border-width: 2px;
+}
+.food {
+  font-size: 18px;
+  width: 300px;
+  height: 10px;
+  margin: 0 auto 8px;
+  opacity: 0.6;
+  border-radius: 3px;
+}
+.bread {
+  height: 22px;
+  border: 2px solid black;
+}
+.tomato {
+  background-color: tomato;
+}
+.egg {
+  background-color: gold;
+}
+.ham {
+  background-color: firebrick;
+}
+.cucumber {
+  background-color: green;
+}
+
+/*  loader  */
+.loader {
+  border: 24px solid white;
+  border-radius: 50%;
+  border-top: 24px solid var(--sub-color);
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  margin: 200px auto;
+}
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

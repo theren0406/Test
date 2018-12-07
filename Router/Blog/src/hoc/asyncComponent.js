@@ -8,9 +8,9 @@ export default function asyncComponent(importFunc) {
 
 		componentDidMount() {
 			importFunc()
-				.then(cmp => {
-					console.log(cmp);
-					this.setState({ component: cmp.default });
+				.then(myModule => {
+					console.log(myModule);
+					this.setState({ component: myModule.default });
 				});
 		}
 

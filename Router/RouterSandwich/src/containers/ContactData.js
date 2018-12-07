@@ -44,11 +44,9 @@ class ContactData extends Component {
     }
     axios.post('/orders.json', order)
       .then(response => {
-        if (response) {
-          alert('訂購成功');
-          // 轉至購買紀錄
-          history.push('/orders');
-        }
+        if (response) alert('訂購成功');
+        // 轉至購買紀錄
+        history.push('/orders');
       })
       .catch(error => {
         console.log(error);

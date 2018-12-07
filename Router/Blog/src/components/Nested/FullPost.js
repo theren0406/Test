@@ -31,9 +31,11 @@ class FullPost extends Component {
 		axios.delete(`/posts/${this.props.match.params.id}.json`)
 			.then(res => {
 				console.log(res);
+				this.props.history.push({
+					pathname: '/posts',
+					state: { fromDeletePost: true }
+				});
 			});
-
-		this.props.history.push('/posts');
 	}
 
 	render() {

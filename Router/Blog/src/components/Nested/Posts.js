@@ -7,13 +7,19 @@ import FullPost from './FullPost';
 
 class Posts extends Component {
 	state = {
-		posts: null,
+		posts: null
 	}
 
 	componentDidUpdate() {
 		const { history, location } = this.props;
-		if (history.action === 'PUSH' &&  location.pathname === '/posts') {
+		console.log(location);
+		
+		if (location.state && location.state.fromDeletePost) {
 			this.getPostList();
+			history.replace({
+				pathname: '/posts',
+				state: { fromDeletePost: false }
+			})
 		}
 	}
 

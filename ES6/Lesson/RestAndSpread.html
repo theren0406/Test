@@ -34,7 +34,7 @@
     addNumbers(1, 2, 3, 4);
 
     // ES6
-    function addNumbers(...numers) {
+    function addNumbers(...numbers) {
       return numbers.reduce((sum, number) => {
         return sum + number;
       }, 0);
@@ -66,6 +66,42 @@
         return a * b;
       }
     }
+    
+
+
+    // 新增重複的key，舊的value將被覆蓋
+
+    const person = { name: 'Cindy', age: 18 };
+    const newPerson = { ...person, age: 20 };
+
+    // console.log(newPerson);
+
+    
+    // !!! ES6 Spread 無法deep clone !!!!!
+    const state = { 
+      name: 'Cindy',
+      age: 18,
+      family: {
+        daddy: { name: 'Jack', age: 40 },
+        mommy: { name: 'Lily', age: 38 }
+      }
+    };
+
+    // const newState = { ...state, age: 20 };
+    // newState.family.daddy.name = 'John';
+
+    const newState = {
+      ...state,
+      age: 20,
+      family: {
+        ...state.family,
+        daddy: {
+          ...state.family.daddy,
+          name: 'John'
+        }
+      }
+    }
+    console.log(state, newState);
 
   </script>
 </body>

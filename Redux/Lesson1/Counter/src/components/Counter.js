@@ -64,5 +64,8 @@ const mapDispatchToProps = dispatch => {
   }
 };
 
-// xxquhdiquwhdiq
+
+// 若只有mapDispatchToProps，第一個參數要帶null
+// export default connect(null, mapDispatchToProps)(Counter);
+
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);

@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Route } from 'react-router-dom';
 
-import Loading from '../components/Loading';
 import ContactData from './ContactData';
 
 export default class Checkout extends Component {
@@ -16,8 +15,9 @@ export default class Checkout extends Component {
     const query = new URLSearchParams(this.props.location.search);
     const ingredients = [];
     let price = 0;
+    // console.log(query.get('totalPrice'));
 
-    for (let param of query.entries()) {
+    for (let param of query) {
       // console.log(param);
       if (param[0] === 'totalPrice') {
         price = param[1];

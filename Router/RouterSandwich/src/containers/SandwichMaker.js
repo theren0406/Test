@@ -11,8 +11,7 @@ export default class SandwichMaker extends Component {
       { id: 'cucumber', name: '小黃瓜', amount: 1, price: 5 },
       { id: 'ham', name: '火腿', amount: 1, price: 15 },
     ],
-    totalPrice: 42,
-    isLoading: false
+    totalPrice: 42
   }
 
   handleAddIngred = (ingredId) => {
@@ -63,7 +62,7 @@ export default class SandwichMaker extends Component {
   }
 
   render() {
-    const { ingredients, totalPrice, modalIsShowed, isLoading } = this.state;
+    const { ingredients, totalPrice } = this.state;
     return (
       <div className="row">
         <div className="col-md-6">

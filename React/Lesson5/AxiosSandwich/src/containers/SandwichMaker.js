@@ -84,7 +84,7 @@ export default class SandwichMaker extends Component {
   }
 
   render() {
-    const { ingredients, totalPrice, modalIsShowed, isLoading } = this.state;
+    const { ingredients, totalPrice } = this.state;
     return (
       <div className="row">
         <div className="col-md-6">

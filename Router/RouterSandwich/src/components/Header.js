@@ -11,7 +11,7 @@ export default function Header(props) {
         <a href="" >結帳</a>
         <a href="" >購買紀錄</a> */}
         <NavLink to="/" exact>製作三明治</NavLink>
-        <NavLink to="/menu" activeClassName="navActive">MENU</NavLink>
+        <NavLink to="/menu" activeClassName="active">MENU</NavLink>
         <NavLink to="/orders">購買紀錄</NavLink>
       </nav>
     </header>

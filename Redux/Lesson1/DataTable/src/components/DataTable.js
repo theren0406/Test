@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+// import * as UserActionCreators from '../actions';
 import { addUser, deleteUser } from '../actions';
 
 import { checkError } from './validate';
@@ -142,6 +143,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   // return bindActionCreators({ addUser, deleteUser }, dispatch);
+  // return bindActionCreators(UserActionCreators, dispatch);
   return {
     // addUser: (payload) => dispatch({ type: 'ADD_USER', payload }),
     addUser: (payload) => dispatch(addUser(payload)),

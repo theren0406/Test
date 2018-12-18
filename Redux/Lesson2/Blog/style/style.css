@@ -1,0 +1,133 @@
+:root {
+  --main-color: rgb(179, 218, 216);
+  --sub-color: rgb(10, 177, 168);
+  --third-color: rgb(1, 62, 59);
+  --hover-color: #fa923f;
+}
+body {
+  font-family: MicroSoft JhengHei;
+  color: rgb(77, 77, 77);
+}
+header {
+  margin: 20px 0 30px;
+}
+nav {
+  border: solid var(--main-color);
+  border-width: 3px 0; 
+  padding: 0 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+nav a {
+  color: var(--sub-color);
+  cursor: pointer;
+  padding: 10px;
+  margin: 0 20px;
+  display: inline-block;
+}
+nav a:hover, nav a.active {
+  text-decoration: none;
+  color: var(--hover-color);
+}
+nav a.my-active {
+  color: pink;
+}
+.app {
+  /* max-width: 540px; */
+  max-width: 900px;
+  margin: 0 auto;
+}
+@media (min-width: 992px) {
+  .app {
+    /* max-width: 720px; */
+  }
+}
+.home {
+  text-align: center;
+}
+.home p {
+  width: 11em;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 20px;
+  color: var(--third-color);
+  margin: 10px auto;
+  animation: typing 3s steps(11)
+}
+@keyframes typing {
+  from { width: 0 }
+}
+.logo {
+  width: 200px;
+}
+.notFound {
+  text-align: center;
+  padding-top: 20px;
+}
+.myBtn {
+  border: 2px solid var(--main-color);
+  background-color: var(--main-color);
+  border-radius: 5px;
+  display: block;
+  margin: 10px auto 0;
+  padding: 6px 12px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+.myBtn:hover {
+  background-color: white;
+  color: var(--third-color);
+  font-weight: normal;
+}
+.addBtn {
+  border-color: var(--sub-color);
+  background-color: var(--sub-color);
+}
+.form-control {
+  border-width: 2px;
+}
+.title {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden; 
+}
+.post {
+  border: 2px dashed var(--main-color);
+  border-radius: 5px;
+  padding: 15px 20px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+.post:hover {
+  border-color: var(--sub-color);
+}
+.content {
+  margin: 25px 0;
+  line-height: 2;
+}
+.notice {
+  font-size: 18px;
+  margin: 20px auto 0;
+} 
+
+/*  loader  */
+.loader {
+  border: 24px solid white;
+  border-radius: 50%;
+  border-top: 24px solid var(--main-color);
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  margin: 100px auto 0;
+}
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

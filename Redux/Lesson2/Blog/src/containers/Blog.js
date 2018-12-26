@@ -5,6 +5,7 @@ import Home from '../components/Home';
 import Posts from './Posts';
 import FullPost from './FullPost';
 import asyncComponent from '../hoc/asyncComponent';
+import ScrollToTopRoute from '../hoc/ScrollToTopRoute';
 
 const AsyncNewPost = asyncComponent(() => {
 	return import('./NewPost');
@@ -14,7 +15,7 @@ class Blog extends Component {
 
 	render() {
 		return (
-			<div className="Blog">
+			<div className="app">
 				<header>
 					<nav>
 						<NavLink to="/" exact>首頁</NavLink>
@@ -27,6 +28,7 @@ class Blog extends Component {
 					<Route path="/" exact component={Home} />
 					<Route path="/newPost" component={AsyncNewPost} /> 
 					<Route path="/posts" exact component={Posts} />
+					{/* <ScrollToTopRoute path="/posts/:id" component={FullPost} /> */}
 					<Route path="/posts/:id" component={FullPost} />
 					<Route render={() => <h5 className="notFound">404 Not found...</h5>} />
 				</Switch>

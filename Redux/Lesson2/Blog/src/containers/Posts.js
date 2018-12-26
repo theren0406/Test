@@ -30,7 +30,7 @@ class Posts extends Component {
 	}
 
 	componentDidUpdate() {
-		console.log(this.props)
+		// console.log(this.props);
 	}
 
 	handlePostSelected = (id) => {

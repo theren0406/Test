@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import axios from '../axiosURL';
+import { connect } from 'react-redux';
 
 import Loader from '../components/Loader';
+import { deletePost, getPost } from '../actions/post';
 
 class FullPost extends Component {
 	state = {
@@ -9,25 +10,41 @@ class FullPost extends Component {
 	}
 
 	componentDidMount() {
-		console.log(this.props);
-		const { id } = this.props.match.params;
+		// window.scroll(0, 0);
 
-		axios.get(`/posts/${id}.json`)
-			.then(res => {
-				this.setState({ post: res.data });
-			});
+		// console.log(this.props);
+		// const { id } = this.props.match.params;
+
+		// axios.get(`/posts/${id}.json`)
+		// 	.then(res => {
+		// 		this.setState({ post: res.data });
+		// 	});
+
+		const { post, match } = this.props;
+
+		if (!post) {
+			this.props.getPost(match.params.id);
+			// axios.get(`/posts/${match.params.id}.json`)
+			// 	.then(res => {
+			// 		this.setState({ post: res.data });
+			// 	});
+		}
 	}
 
 	handleDeletePost = () => {
-		axios.delete(`/posts/${this.props.match.params.id}.json`)
-			.then(res => {
-				console.log(res);
-				this.props.history.push('/posts');
-			});
+		const { id } = this.props.match.params;
+		
+		this.props.deletePost(id);
+
+		// axios.delete(`/posts/${this.props.match.params.id}.json`)
+		// 	.then(res => {
+		// 		console.log(res);
+		// 		this.props.history.push('/posts');
+		// 	});
 	}
 
 	render() {
-		const { post } = this.state;
+		const { post } = this.props;
 		return (
 			<div>
 				{!post ?
@@ -44,4 +61,20 @@ class FullPost extends Component {
 	}
 }
 
-export default FullPost;
+const mapStateToProps = (state, ownProps) => {
+	// console.log(ownProps);
+	return {
+		post: state.posts.find(post => post.id === ownProps.match.params.id),
+		isLoading: state.isLoading
+	};
+}
+
+const mapDispatchToProps = dispatch => {
+	// return bindActionCreators({ deleteList }, dispatch);
+	return {
+		deletePost: (payload) => dispatch(deletePost(payload)),
+		getPost: (payload) => dispatch(getPost(payload))
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FullPost);

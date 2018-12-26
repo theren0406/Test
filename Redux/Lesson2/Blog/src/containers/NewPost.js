@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
 // import axios from '../axiosURL';
 
 import Input from '../components/Input';
@@ -19,8 +20,8 @@ class NewPost extends Component {
 	handleSendPost = () => {
 		const { submitted, ...data } = this.state;
 	
+		// this.props.addPost(data, () => this.props.history.push('/posts'));
 		this.props.addPost(data);
-		this.props.history.replace('/posts');
 
 		// axios.post(`/posts.json`, data)
 		// 	.then(response => {
@@ -49,10 +50,10 @@ class NewPost extends Component {
 }
 
 const mapDispatchToProps = dispatch => {
-	// return bindActionCreators({ addPost }, dispatch);
-  return {
-      addPost: (payload) => dispatch(addPost(payload)),
-  }
+	return bindActionCreators({ addPost }, dispatch);
+  // return {
+  //     addPost: (payload, history) => dispatch(addPost(payload, history)),
+  // }
 }
 
 export default connect(null, mapDispatchToProps)(NewPost);

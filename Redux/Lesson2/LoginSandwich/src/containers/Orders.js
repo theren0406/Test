@@ -13,42 +13,10 @@ class Orders extends Component {
 
   componentDidMount() {
     this.props.getOrderList();
-
-    // axios.get('/orders.json')
-    //   .then(res => {
-    //     const fetchedOrders = [];
-    //     // console.log(res);
-    //     for (let key in res.data) {
-    //       fetchedOrders.push({
-    //         id: key,
-    //         ...res.data[key]
-    //       });
-    //     }
-    //     // 使用reverse 將最新訂單放最上面
-    //     this.setState({ loading: false, orders: fetchedOrders.reverse() });
-    //   })
-    //   .catch(err => {
-    //     this.setState({ loading: false });
-    //   });
   }
 
   handleDeleteOrder(orderId) {
     this.props.deleteOrder({ id: orderId });
-
-    // const { orders } = this.state;
-    // const editedOrders = orders.filter(order => order.id !== orderId);    
-
-    // axios.delete(`/orders/${orderId}.json`)
-    //   .then(res => {
-    //     if (res) {
-    //       alert('已刪除一筆購買紀錄');
-    //       this.setState({ loading: false, orders: editedOrders });
-    //     }
-    //   })
-    //   .catch(err => {
-    //     alert('刪除失敗');
-    //     this.setState({ loading: false });
-    //   });
   }
 
   orderList() {

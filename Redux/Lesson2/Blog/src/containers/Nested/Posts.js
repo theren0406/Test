@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import axios from '../../axiosURL';
 import { Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import FullPost from './FullPost';
-
+import { getPostList } from '../../actions/post';
 
 class Posts extends Component {
 	state = {
@@ -12,10 +12,9 @@ class Posts extends Component {
 
 	componentDidUpdate() {
 		const { history, location } = this.props;
-		console.log(location);
 		
 		if (location.state && location.state.fromDeletePost) {
-			this.getPostList();
+			this.props.getPostList();
 			history.replace({
 				pathname: '/posts',
 				state: { fromDeletePost: false }
@@ -24,36 +23,34 @@ class Posts extends Component {
 	}
 
 	componentDidMount() {
-		console.log(this.props);
-		this.getPostList();
+		this.props.getPostList();
 	}
 
-	getPostList() {
-		axios.get('/posts.json')
-			.then(res => {
-				const fetchedPosts = [];
+	// getPostList() {
+	// 	axios.get('/posts.json')
+	// 		.then(res => {
+	// 			const fetchedPosts = [];
 
-				for (let key in res.data) {
-					fetchedPosts.push({
-						id: key,
-						...res.data[key]
-					});
-				}
-				// 使用reverse 將最新網誌放最上面
-				this.setState({ posts: fetchedPosts.reverse() });
-			})
-			.catch(err => {
-				console.log(err);
-			});
-	}
+	// 			for (let key in res.data) {
+	// 				fetchedPosts.push({
+	// 					id: key,
+	// 					...res.data[key]
+	// 				});
+	// 			}
+	// 			// 使用reverse 將最新網誌放最上面
+	// 			this.setState({ posts: fetchedPosts.reverse() });
+	// 		})
+	// 		.catch(err => {
+	// 			console.log(err);
+	// 		});
+	// }
 
 	handlePostSelected = (id) => {
-		// this.props.history.push({pathname: '/posts/' + id});
 		this.props.history.push('/posts/' + id);
 	}
 
 	render() {
-		const { posts } = this.state;
+		const { posts } = this.props;
 		const { url } = this.props.match;
 		return (
 			<div className="row">
@@ -77,4 +74,18 @@ class Posts extends Component {
 	}
 }
 
-export default Posts;
+const mapStateToProps = state => {
+	return {
+		posts: state.posts,
+		isLoading: state.isLoading
+	};
+}
+
+const mapDispatchToProps = dispatch => {
+	// return bindActionCreators({ getPostList }, dispatch);
+	return {
+		getPostList: (payload) => dispatch(getPostList(payload)),
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Posts);

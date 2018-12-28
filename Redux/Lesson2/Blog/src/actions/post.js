@@ -11,10 +11,10 @@ import {
   GET_POST_REQUEST,
   GET_POST_SUCCESS,
   GET_POST_FAILURE,
-} 
-from './actionTypes';
+}
+  from './actionTypes';
 import axios from '../axiosURL';
-import history from '../history'; 
+import history from '../history';
 
 export const addPostRequest = payload => ({
   type: ADD_POST_REQUEST,
@@ -86,7 +86,10 @@ export const deletePost = payload => (
     axios.delete(`/posts/${post_id}.json`)
       .then(response => {
         dispatch(deletePostSuccess(response));
-        history.push('/posts');
+        history.push({
+          pathname: '/posts',
+          state: { fromDeletePost: true }
+        });
       })
       .catch(error => {
         dispatch(deletePostFailure(error));
@@ -101,12 +104,12 @@ export const getPostList = payload => (
       .then(response => {
         const fetchedPosts = [];
         for (let key in response.data) {
-					fetchedPosts.push({
-						id: key,
-						...response.data[key]
-					});
-				}
-				// 使用reverse 將最新網誌放最上面
+          fetchedPosts.push({
+            id: key,
+            ...response.data[key]
+          });
+        }
+        // 使用reverse 將最新網誌放最上面
         dispatch(getPostListSuccess(fetchedPosts.reverse()));
       })
       .catch(error => {

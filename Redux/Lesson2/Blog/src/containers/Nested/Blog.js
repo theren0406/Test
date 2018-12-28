@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
 
-import Home from '../Home';
+import Home from '../../components/Home';
 import Posts from './Posts';
 import asyncComponent from '../../hoc/asyncComponent';
 
@@ -17,7 +17,7 @@ class Blog extends Component {
 
 	render() {
 		return (
-			<div className="Blog">
+			<div className="app">
 				<header>
 					<nav>
 						<NavLink to="/" exact>首頁</NavLink>

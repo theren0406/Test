@@ -48,19 +48,6 @@ class ContactData extends Component {
       }
     }
     this.props.addOrder(order, history);
-
-    // axios.post('/orders.json', order)
-    //   .then(response => {
-    //     this.setState({ isLoading: false });
-    //     if (response) alert('訂購成功');
-    //     // 轉至購買紀錄
-    //     history.push('/orders');
-    //   })
-    //   .catch(error => {
-    //     this.setState({ isLoading: false });
-    //     console.log(error);
-    //     alert('訂購失敗...');
-    //   });
   }
 
   render() {

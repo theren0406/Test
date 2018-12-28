@@ -55,10 +55,6 @@ class SandwichMaker extends Component {
 } 
 
 const mapStateToProps = state => {
-  // return {
-  //   ingredients: state.ingredients,
-  //   totalPrice: state.totalPrice
-  // };
   const { ingred } = state;
   return {
       ingredients: ingred.ingredients,
@@ -66,9 +62,6 @@ const mapStateToProps = state => {
   };
 }
 
-// const mapDispatchToProps = dispatch => {
-  // return bindActionCreators({ addIngredient, deleteIngredient }, dispatch);
-// }
 const mapDispatchToProps = { 
   addIngredient: addIngredient, 
   deleteIngredient: deleteIngredient,

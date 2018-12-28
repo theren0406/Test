@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import axios from '../../axiosURL';
+import { connect } from 'react-redux';
+
+import { deletePost } from '../../actions/post';
 
 class FullPost extends Component {
 	state = {
@@ -7,39 +9,42 @@ class FullPost extends Component {
 		error: false
 	}
 
-	componentDidMount() {
-		this.getPost();
-	}
+	// componentDidMount() {
+	// 	this.getPost();
+	// }
 
-	componentDidUpdate() {
-		this.getPost();
-	}
+	// componentDidUpdate() {
+	// 	this.getPost();
+	// }
 
-	getPost() {
-		const { id } = this.props.match.params;
-		const { post } = this.state;
+	// getPost() {
+	// 	const { id } = this.props.match.params;
+	// 	const { post } = this.state;
 
-		if (!post || (post && post.id !== id)) {
-			axios.get(`/posts/${id}.json`)
-				.then(res => {
-					this.setState({ post: { id, ...res.data } });
-				});
-		}
-	}
+	// 	if (!post || (post && post.id !== id)) {
+	// 		axios.get(`/posts/${id}.json`)
+	// 			.then(res => {
+	// 				this.setState({ post: { id, ...res.data } });
+	// 			});
+	// 	}
+	// }
 
 	handleDeletePost = () => {
-		axios.delete(`/posts/${this.props.match.params.id}.json`)
-			.then(res => {
-				console.log(res);
-				this.props.history.push({
-					pathname: '/posts',
-					state: { fromDeletePost: true }
-				});
-			});
+		const { id } = this.props.match.params;
+		this.props.deletePost(id);
+
+		// axios.delete(`/posts/${this.props.match.params.id}.json`)
+		// 	.then(res => {
+		// 		console.log(res);
+		// 		this.props.history.push({
+		// 			pathname: '/posts',
+		// 			state: { fromDeletePost: true }
+		// 		});
+		// 	});
 	}
 
 	render() {
-		const { post, error } = this.state;
+		const { post, error } = this.props;
 		return (
 			<div className="col-7">
 				{post &&
@@ -55,4 +60,18 @@ class FullPost extends Component {
 	}
 }
 
-export default FullPost;
+const mapStateToProps = (state, ownProps) => {
+	return {
+		post: state.posts.find(post => post.id === ownProps.match.params.id),
+		isLoading: state.isLoading
+	};
+}
+
+const mapDispatchToProps = dispatch => {
+	// return bindActionCreators({ deleteList }, dispatch);
+	return {
+		deletePost: (payload) => dispatch(deletePost(payload))
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FullPost);

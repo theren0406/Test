@@ -4,6 +4,7 @@ import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
 import Home from './Home';
 import Posts from './Posts';
 import FullPost from './FullPost';
+import withAuth from '../hoc/withAuth';
 import asyncComponent from '../hoc/asyncComponent';
 
 const AsyncNewPost = asyncComponent(() => {
@@ -51,6 +52,9 @@ class Blog extends Component {
 					}
 					<Route path="/posts" exact component={Posts} />
 					<Route path="/posts/:id" component={FullPost} />
+					{/* <Route path="/posts/:id" component={withAuth(FullPost)} /> */}
+					{/* <Route path="/posts/:id" component={(props) => <FullPost {...props}/>} /> */}
+
 					<Route render={() => <h5 className="notFound">404 Not found...</h5>} />
 
 					{/* <Redirect from="/" to="/posts" /> */}

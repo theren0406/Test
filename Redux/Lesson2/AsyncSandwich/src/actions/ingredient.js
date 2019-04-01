@@ -21,15 +21,15 @@ export const deleteIngredient = payload => {
 	};
 }
 
-export const initIngredientRequest = payload => {
+const initIngredientRequest = payload => {
 	return { type: INIT_INGREDIENT_REQUEST, payload };
 }
 
-export const initIngredientSuccess = payload => {
+const initIngredientSuccess = payload => {
 	return { type: INIT_INGREDIENT_SUCCESS, payload };
 }
 
-export const initIngredientFailure = payload => {
+const initIngredientFailure = payload => {
 	return { type: INIT_INGREDIENT_FAILURE, payload };
 }
 

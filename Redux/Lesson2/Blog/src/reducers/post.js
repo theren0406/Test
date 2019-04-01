@@ -12,7 +12,8 @@ from '../actions/actionTypes';
 
 const initState = {
   posts: [],
-  isLoading: true
+  isLoading: true,
+  test: 'Hello'
 };
 
 const postReducer = (state = initState, action) => {

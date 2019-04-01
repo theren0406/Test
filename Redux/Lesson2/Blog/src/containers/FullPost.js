@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { Link } from 'react-router-dom';
 
+import withAuth from '../hoc/withAuth';
 import Loader from '../components/Loader';
 import { deletePost, getPost } from '../actions/post';
 
@@ -31,6 +34,14 @@ class FullPost extends Component {
 		}
 	}
 
+	componentDidUpdate(prevProps) {
+		const { match } = this.props;
+
+		if (match.params.id !== prevProps.match.params.id) {
+			this.props.getPost(match.params.id);
+		}
+	}
+
 	handleDeletePost = () => {
 		const { id } = this.props.match.params;
 		
@@ -50,6 +61,7 @@ class FullPost extends Component {
 				{!post ?
 					<Loader /> :
 					<article className="post">
+						<Link to="/posts/-LUT1DyJazbfeUXVZyMJ">Click me</Link>
 						<h5>{post.title}</h5>
 						<div>作者 : {post.author}</div>
 						<p className="content">{post.content}</p>
@@ -77,4 +89,8 @@ const mapDispatchToProps = dispatch => {
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FullPost);
+// export default connect(mapStateToProps, mapDispatchToProps)(FullPost);
+
+// export default connect(mapStateToProps, mapDispatchToProps)(withAuth(FullPost));
+// export default withAuth(connect(mapStateToProps, mapDispatchToProps)(FullPost));
+export default compose(withAuth, connect(mapStateToProps, mapDispatchToProps))(FullPost);

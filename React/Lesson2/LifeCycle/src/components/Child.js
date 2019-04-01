@@ -1,15 +1,15 @@
 import React, { Component, PureComponent } from 'react';
 
-export default class Child extends PureComponent {
+export default class Child extends Component {
 
-  // shouldComponentUpdate(nextProps) {
-  //   return nextProps !== this.props;
-  // }
+  shouldComponentUpdate(nextProps) {
+    return nextProps.data.name !== this.props.data.name;
+  }
 
   render() {
     console.log('child render');
     return (
-      <p>{this.props.data}</p>
+      <p>{this.props.data.name}</p>
     );
   }
 }

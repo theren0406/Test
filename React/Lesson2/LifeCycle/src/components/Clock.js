@@ -53,7 +53,8 @@ class Clock extends Component {
       <div>
         <h1>Hello, world!</h1>
         <h2>It is {date.toLocaleTimeString()}.</h2>
-        <Child data="123"/>
+         {/* <Child data="123"/> */}
+         <Child data={{ name: 'Cindy', age: 23 }} />
       </div>
     );
   }
